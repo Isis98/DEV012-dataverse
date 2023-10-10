@@ -16,6 +16,17 @@
 
 
 /* } */
+* {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    background-color:aqua;
+    text-align: center;
+    position: fixed;
+    width: 1500px;
+    margin-top: 0px;
+}
 
 ul {
     display: flex;
@@ -105,6 +116,40 @@ footer {
    
 } 
 
-h1{
+#sideBar {
+    position: fixed;
+    width: 150px;
+    height: 100%;
+    background-color: #3AA6B9;
+    color:#ffffff;
+    left: -150px;
+    margin-top: 37px;
+    align-items: center;
+    text-align: center;
+}
+select {
+    color: black;
+    text-align: center;
+    width: 150px;
+}
+#sideBar .toggle-btn {
+    left: 150px;
+    top: 0px;
+    cursor: pointer;
+}
+#sideBar.active{
+    left: 0;
+}
+.toggle-btn {
+    display: block;
+    width: 50px;
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    position:absolute;
+    cursor: pointer;
+}
 
+#root {
+    display: flex;
 }
