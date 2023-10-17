@@ -16,16 +16,23 @@
 
 
 /* } */
-* {
-    margin: 0;
-    padding: 0;
+
+html {
+    min-height: 100%;
+    position: relative;
 }
+
 h1 {
-    background-color:aqua;
+    background-color: #d3bcf6;
     text-align: center;
     position: fixed;
-    width: 1500px;
+    width: 100%;
+    height: 45px;
     margin-top: 0px;
+    z-index: 100;
+    margin: 0;
+    top: 0;
+    left: 0;
 }
 
 ul {
@@ -105,9 +112,12 @@ ul {
 }
 
 footer {
-    text-align: center;
+    position: absolute;
+    width: 15%;
+    height: 5%;
+    right: 0;
     bottom: 0;
-    padding: 20px;
+    
 }
 
  dl {
@@ -120,7 +130,7 @@ footer {
     position: fixed;
     width: 150px;
     height: 100%;
-    background-color: #3AA6B9;
+    background-color: #6a9eda;
     color:#ffffff;
     left: -150px;
     margin-top: 37px;
@@ -151,5 +161,12 @@ select {
 }
 
 #root {
-    display: flex;
+    display: grid;
+    width: calc(100% - 180px);
+    margin: 0 0 0 auto;
+    padding-top: 50px ;
+
+
+
 }
+

@@ -48,6 +48,56 @@ function selectTransmission() {
 
 };
 
+const btnToggle = document.querySelector(".toggle-btn");
+
+btnToggle.addEventListener("click", function () {
+  document.getElementById("sideBar").classList.toggle("active");
+})
+
+const buttonReset = document.querySelector("button[data-testid='button-clear']")
+
+buttonReset.addEventListener("click", resetFilters)
+
+function resetFilters () {
+
+    buttonReset.selectedIndex = 0;
+    renderItems(data);
+    filteredData = data;
+    channel.selectedIndex = 0;
+    targetAudience.selectedIndex = 0;
+    status.selectedIndex = 0;
+}
+
+// Data estadística de canales
+const statisticChannel = data
+.map(item=> item.channel)
+.reduce((obj,channel) => {
+  if (obj[channel]) {
+  obj[channel] = obj[channel] + 1;
+} else {
+  obj[channel] = 1;
+}
+return obj;
+}, {});
+console.log(statisticChannel);
+// Data estadistica de público dirigido
+const statistictargetAudience = data
+.map(item => item.targetAudience)
+.reduce((obj,targetAudience) => {
+  if(obj[targetAudience]) {
+    obj[targetAudience] = obj[targetAudience] + 1;
+  }  else {
+    obj[targetAudience] = 1;
+  }
+  return obj;
+}, {});
+const ver = document.getElementById("vista")
+ver.innerHTML = "Data estadística: <br>Canales de televisión: " + JSON.stringify(statisticChannel) +
+"<br>Público objetivo: <br>" + JSON.stringify(statistictargetAudience);
+
+
+
+
 // select.selectedIndex = 0;
 
 // const selection = document.querySelectorAll("select[data-testid='select-filter']");
@@ -112,8 +162,3 @@ function selectTransmission() {
 //   }
 
 // Evento de sideBar
-const btnToggle = document.querySelector(".toggle-btn");
-
-btnToggle.addEventListener("click", function () {
-  document.getElementById("sideBar").classList.toggle("active");
-})

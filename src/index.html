@@ -11,42 +11,50 @@
   <section id="sideBar" class="active">
     <main>
       <h2>
-        (Filtros)
+        <i>Filtros</i>
       </h2>
     </main>
     <section class="toggle-btn">
       <spam>&#9776;</spam>
     </section>
   <body>
+
   <label for="channel">Canales de televisión</label><br>
   <select data-testid="select-filter" name="channel">
-    <option value="">Todos</option>
+    <option value="Todos">Todos</option>
     <option value="Disney Channel">Disney Channel</option>
     <option value="Cartoon Network">Cartoon Network</option>
     <option value="Nickelodeon">Nickelodeon</option>
     <option value="Discovery Kids">Discovery Kids</option>
   </select><br><br>
+
   <label for="public">Público dirigido</label><br>
   <select data-testid="select-filter" name="targetAudience">
     <option value="">Todos</option>
     <option value="Niños">Niños</option>
     <option value="Niños y adolescentes">Niños y adolescentes</option>
   </select><br><br>
+
   <label for="transmission">Transmisión</label><br>
   <select data-testid="select-filter" name="status">
     <option value="">Todos</option>
     <option value="En curso">En curso</option>
     <option value="Finalizada">Finalizada</option>
   </select><br><br>
+
   <label for="words">Orden alfabético</label><br>
   <select data-testid="select-sort" name="words">
     <option value="asc">A - Z</option>
     <option value="desc">Z - A</option>
   </select><br><br>
   <button data-testid="button-clear">Limpiar</button>
+
+  <p id= "vista" >Data estadística</p>
 </section>
+
   <section id = "root">
   </section>
+
     <footer>Copyright Isis y Ross 2023</footer>
     <script src="main.js" type="module"></script>
   </body>
