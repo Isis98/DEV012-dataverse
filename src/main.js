@@ -1,31 +1,39 @@
 import { computeStats, filterData } from "./dataFunctions.js";
 import { renderItems } from "./view.js";
-import { renderStatistics } from "./view.js";
+import { channelStatistics } from "./view.js";
 import { sortData } from "./dataFunctions.js";
 
 import data from "./data/dataset.js";
 
-
+// const dataClone = [...data];
 const renderInView = (element, id) => {
   const rootElement = document.getElementById(id);
   rootElement.innerHTML = ''
   rootElement.appendChild(element);
 };
 
-const firstView = renderItems(data);
-renderInView(firstView, 'root')
+const dataBaseToShowInHtml = renderItems(data);
+renderInView(dataBaseToShowInHtml, 'root');
+
+const statistics = computeStats(data);
+const cartoonStatistics = channelStatistics(statistics);
+renderInView(cartoonStatistics, 'statistics');
+
 
 //Variable que almacena los filtros seleccionados y crean un objeto a la vez.
 
 const channel = document.querySelector("select[name='channel']");
 const targetAudience = document.querySelector("select[name='targetAudience']");
 const status = document.querySelector("select[name='status']");
+const sort = document.querySelector("select[data-testid='select-sort']");
 
 let filteredData = data;
+
 
 channel.addEventListener("change", selectChannel);
 targetAudience.addEventListener("change", selectPublic);
 status.addEventListener("change", selectTransmission);
+sort.addEventListener("change", selectSort );
 
 
 function selectChannel() {
@@ -55,6 +63,20 @@ function selectTransmission() {
   renderInView(itemsFiltered, 'root')
 }
 
+function selectSort() {
+  
+  const selectedSort = sort.value;
+
+  const sortedData = sortData(filteredData, 'name', selectedSort);
+  console.log("🚀 ~ file: main.js:71 ~ selectSort ~ sortedData:", sortedData)
+
+  const itemsFiltered = renderItems(sortedData);
+  renderInView(itemsFiltered, 'root')
+  
+
+}
+
+
 const btnToggle = document.querySelector(".toggle-btn");
 
 btnToggle.addEventListener("click", function () {
@@ -75,15 +97,11 @@ function resetFilters() {
   channel.selectedIndex = 0;
   targetAudience.selectedIndex = 0;
   status.selectedIndex = 0;
+  sort.selectedIndex = 0;
 }
 
 
-const statistics = computeStats(data);
 
-const statisticsView = renderStatistics(statistics);
-const statisticsList = document.getElementById("statistics");
-
-statisticsList.appendChild(statisticsView);
 
 
 

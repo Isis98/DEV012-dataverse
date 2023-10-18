@@ -50,7 +50,7 @@ export const renderItems = (data) => {
   return ul;
 };
 
-export const renderStatistics = (computeStats) => {
+export const channelStatistics = (computeStats) => {
   const ul = document.createElement("ul");
 
   const li = `
