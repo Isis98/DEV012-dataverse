@@ -35,7 +35,7 @@ h1 {
     left: 0;
 }
 
-ul {
+#root ul {
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
@@ -114,9 +114,9 @@ ul {
 footer {
     position: absolute;
     width: 15%;
-    height: 5%;
     right: 0;
     bottom: 0;
+    margin: 10px 0 10px;
     
 }
 
@@ -170,3 +170,9 @@ select {
 
 }
 
+.totalChannels ul{
+
+    list-style: none;
+    text-align: initial;
+    padding-left: 10px;
+}

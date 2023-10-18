@@ -1,10 +1,19 @@
-import { filterData } from "./dataFunctions.js";
+import { computeStats, filterData } from "./dataFunctions.js";
 import { renderItems } from "./view.js";
+import { renderStatistics } from "./view.js";
 import { sortData } from "./dataFunctions.js";
 
 import data from "./data/dataset.js";
 
-renderItems(data);
+
+const renderInView = (element, id) => {
+  const rootElement = document.getElementById(id);
+  rootElement.innerHTML = ''
+  rootElement.appendChild(element);
+};
+
+const firstView = renderItems(data);
+renderInView(firstView, 'root')
 
 //Variable que almacena los filtros seleccionados y crean un objeto a la vez.
 
@@ -20,83 +29,95 @@ status.addEventListener("change", selectTransmission);
 
 
 function selectChannel() {
+  const selectedChannel = channel.value;
 
-    const selectedChannel = channel.value;
+  filteredData = filterData(filteredData, "channel", selectedChannel);
 
-    filteredData = filterData (filteredData, "channel", selectedChannel );
-
-    renderItems(filteredData)
+  const itemsFiltered = renderItems(filteredData);
+  renderInView(itemsFiltered, 'root')
 }
 
-
 function selectPublic() {
+  const selectedPublic = targetAudience.value;
 
-    const selectedPublic = targetAudience.value;
+  filteredData = filterData(filteredData, "targetAudience", selectedPublic);
 
-    filteredData = filterData (filteredData, "targetAudience", selectedPublic );
-
-    renderItems(filteredData)
+  const itemsFiltered = renderItems(filteredData);
+  renderInView(itemsFiltered, 'root')
 }
 
 function selectTransmission() {
-
   const selectedTransmission = status.value;
 
   filteredData = filterData(filteredData, "status", selectedTransmission);
 
-  renderItems(filteredData);
-
-};
+  const itemsFiltered = renderItems(filteredData);
+  renderInView(itemsFiltered, 'root')
+}
 
 const btnToggle = document.querySelector(".toggle-btn");
 
 btnToggle.addEventListener("click", function () {
   document.getElementById("sideBar").classList.toggle("active");
-})
+});
 
-const buttonReset = document.querySelector("button[data-testid='button-clear']")
+const buttonReset = document.querySelector(
+  "button[data-testid='button-clear']"
+);
 
-buttonReset.addEventListener("click", resetFilters)
+buttonReset.addEventListener("click", resetFilters);
 
-function resetFilters () {
-
-    buttonReset.selectedIndex = 0;
-    renderItems(data);
-    filteredData = data;
-    channel.selectedIndex = 0;
-    targetAudience.selectedIndex = 0;
-    status.selectedIndex = 0;
+function resetFilters() {
+  buttonReset.selectedIndex = 0;
+  const itemsFiltered = renderItems(data);
+  renderInView(itemsFiltered, 'root')
+  filteredData = data;
+  channel.selectedIndex = 0;
+  targetAudience.selectedIndex = 0;
+  status.selectedIndex = 0;
 }
+
+
+const statistics = computeStats(data);
+
+const statisticsView = renderStatistics(statistics);
+const statisticsList = document.getElementById("statistics");
+
+statisticsList.appendChild(statisticsView);
+
+
+
+
+
 
 // Data estadística de canales
-const statisticChannel = data
-.map(item=> item.channel)
-.reduce((obj,channel) => {
-  if (obj[channel]) {
-  obj[channel] = obj[channel] + 1;
-} else {
-  obj[channel] = 1;
-}
-return obj;
-}, {});
-console.log(statisticChannel);
-// Data estadistica de público dirigido
-const statistictargetAudience = data
-.map(item => item.targetAudience)
-.reduce((obj,targetAudience) => {
-  if(obj[targetAudience]) {
-    obj[targetAudience] = obj[targetAudience] + 1;
-  }  else {
-    obj[targetAudience] = 1;
-  }
-  return obj;
-}, {});
-const ver = document.getElementById("vista")
-ver.innerHTML = "Data estadística: <br>Canales de televisión: " + JSON.stringify(statisticChannel) +
-"<br>Público objetivo: <br>" + JSON.stringify(statistictargetAudience);
+// const statisticChannel = data
+//   .map((item) => item.channel)
+//   .reduce((obj, channel) => {
+//     if (obj[channel]) {
+//       obj[channel] = obj[channel] + 1;
+//     } else {
+//       obj[channel] = 1;
+//     }
+//     return obj;
+//   }, {});
+// console.log(statisticChannel);
 
+// // Data estadistica de público dirigido
+// const statistictargetAudience = data
+//   .map((item) => item.targetAudience)
+//   .reduce((obj, targetAudience) => {
+//     if (obj[targetAudience]) {
+//       obj[targetAudience] = obj[targetAudience] + 1;
+//     } else {
+//       obj[targetAudience] = 1;
+//     }
+//     return obj;
+//   }, {});
 
-
+// const ver = document.getElementById("vista")
+// ver.innerHTML = "Data estadística: <br>Canales de televisión: " + JSON.stringify(statisticChannel) +
+// "<br>Público objetivo: <br>" + JSON.stringify(statistictargetAudience);
 
 // select.selectedIndex = 0;
 
@@ -140,21 +161,18 @@ ver.innerHTML = "Data estadística: <br>Canales de televisión: " + JSON.stringi
 
 // function applyFilters() {
 //     const selectedValue = {};
-  
+
 //     //almacenar los valores seleccionados de cada filtro en selectedValue
 //     selectedValue.channel = channel.value;
 //     selectedValue.audience = targetAudience.value;
 //     selectedValue.status = status.value;
 //     console.log(
 //       "🚀 ~ file: main.js:30 ~ applyFilters ~ selectedValue:",selectedValue);
-  
-    
-  
+
 //     filteredData = filterData(filteredData, "channel", channel.value);
 //     filteredData = filterData(filteredData, "status", status.value);
 //     filteredData = filterData(filteredData, "targetAudience",targetAudience.value);
-    
-  
+
 //     if (filteredData.length > 0) {
 //       renderItems(filteredData);
 //     }

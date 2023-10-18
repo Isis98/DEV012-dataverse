@@ -6,18 +6,33 @@ export const filterData = (data, filterBy, value) => {
   data.forEach((element) => {
     if (element[filterBy] === value) {
       filteredData.push(element);
-    } 
+    }
   });
 
-    return filteredData;
-  
-
+  return filteredData;
 };
 
-export const sortData = (data, sortBy,sortOrder) => {
+export const sortData = (data, sortBy, sortOrder) => {
+  //
+  const sortedData = data;
 
-  const sortedData = [...data];
-  
-  
+  sortedData.sort((a, b) => {});
 };
-//filteredData
+
+export const computeStats = (data) => {
+  const arrayOfChannels = data.map((item) => item.channel);
+
+  const numbersOfChannels = arrayOfChannels.reduce((accum, channel) => {
+    if (accum[channel]) {
+      accum[channel]++;
+    } else {
+      accum[channel] = 1;
+    }
+
+    return accum;
+  }, {});
+
+
+
+  return numbersOfChannels;
+};

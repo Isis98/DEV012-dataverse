@@ -42,12 +42,27 @@ export const renderItems = (data) => {
   `;
 
     //Cada li inyectarlo en la ul
-    ul.innerHTML += li
+    ul.innerHTML += li;
   }
 
-  //Renderizar el ul
-  const rootElement = document.getElementById("root");
-  
-  rootElement.innerHTML = '';
-  rootElement.appendChild(ul);
+  //Renderizar el ul, esto debe estar en el main.js
+
+  return ul;
 };
+
+export const renderStatistics = (computeStats) => {
+  const ul = document.createElement("ul");
+
+  const li = `
+    <li> Disney Channel: ${computeStats["Disney Channel"]} </li>
+    <li> Cartoon Network: ${computeStats["Cartoon Network"]} </li>
+    <li> Discovery Kids: ${computeStats["Discovery Kids"]} </li>
+    <li> Nickelodeon: ${computeStats["Nickelodeon"]} </li>
+    `;
+
+  ul.innerHTML = li;
+
+  return ul;
+};
+
+
