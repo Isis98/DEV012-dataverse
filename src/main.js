@@ -27,51 +27,50 @@ const targetAudience = document.querySelector("select[name='targetAudience']");
 const status = document.querySelector("select[name='status']");
 const sort = document.querySelector("select[data-testid='select-sort']");
 
-let filteredData = data;
+const originalData = [...data];
+let filteredData = [...data];
 
-
-channel.addEventListener("change", selectChannel);
-targetAudience.addEventListener("change", selectPublic);
-status.addEventListener("change", selectTransmission);
+channel.addEventListener("change", applyFilters);
+targetAudience.addEventListener("change", applyFilters);
+status.addEventListener("change", applyFilters);
 sort.addEventListener("change", selectSort );
 
 
-function selectChannel() {
-  const selectedChannel = channel.value;
+function applyFilters() {
+  // Create a copy of the original data to apply filters
+  filteredData = [...originalData];
 
-  filteredData = filterData(filteredData, "channel", selectedChannel);
-
-  const itemsFiltered = renderItems(filteredData);
-  renderInView(itemsFiltered, 'root')
-}
-
-function selectPublic() {
+  // const selectedChannel = channel.value;
   const selectedPublic = targetAudience.value;
-
-  filteredData = filterData(filteredData, "targetAudience", selectedPublic);
-
-  const itemsFiltered = renderItems(filteredData);
-  renderInView(itemsFiltered, 'root')
-}
-
-function selectTransmission() {
   const selectedTransmission = status.value;
 
-  filteredData = filterData(filteredData, "status", selectedTransmission);
+  if (channel.value !== "Todos") {
+    filteredData = filterData(filteredData, "channel", channel.value);
+  }
 
+  if (selectedPublic !== "Todos") {
+    filteredData = filterData(filteredData, "targetAudience", selectedPublic);
+  }
+
+  if (selectedTransmission !== "Todos") {
+    filteredData = filterData(filteredData, "status", selectedTransmission);
+  }
+
+  // Display the filtered data in the HTML.
   const itemsFiltered = renderItems(filteredData);
-  renderInView(itemsFiltered, 'root')
+  renderInView(itemsFiltered, 'root');
 }
 
 function selectSort() {
   
   const selectedSort = sort.value;
 
+  if(selectedSort !== "Seleccionar"){
   const sortedData = sortData(filteredData, 'name', selectedSort);
-  console.log("🚀 ~ file: main.js:71 ~ selectSort ~ sortedData:", sortedData)
+  
 
   const itemsFiltered = renderItems(sortedData);
-  renderInView(itemsFiltered, 'root')
+  renderInView(itemsFiltered, 'root')}
   
 
 }
@@ -87,18 +86,91 @@ const buttonReset = document.querySelector(
   "button[data-testid='button-clear']"
 );
 
-buttonReset.addEventListener("click", resetFilters);
+buttonReset.addEventListener("click", resetFiltersAndRenderItems);
 
-function resetFilters() {
+function resetFiltersAndRenderItems() {
+
   buttonReset.selectedIndex = 0;
-  const itemsFiltered = renderItems(data);
-  renderInView(itemsFiltered, 'root')
-  filteredData = data;
   channel.selectedIndex = 0;
   targetAudience.selectedIndex = 0;
   status.selectedIndex = 0;
   sort.selectedIndex = 0;
+  filteredData = data;
+  const itemsFiltered = renderItems(data);
+  renderInView(itemsFiltered, 'root');
+
 }
+
+// const originalData = [...data];
+// let filteredData = [...data];
+
+// // const alertBox = (filteredData) => {
+// //   if(filteredData.length === 0){
+// //     alert(" No se encuentra ningun resultado ");
+// //     // resetFiltersAndRenderItems();
+// //   }
+// // }
+
+
+
+// channel.addEventListener("change", selectChannel);
+// targetAudience.addEventListener("change", selectPublic);
+// status.addEventListener("change", selectTransmission);
+
+
+// function applyFilters() {
+//   // Display the filtered data in the HTML.
+//   const itemsFiltered = renderItems(filteredData);
+//   renderInView(itemsFiltered, 'root');
+// }
+
+
+// function selectChannel() {
+//   const selectedChannel = channel.value;
+//   // Usar if (Todos)
+//   if( selectedChannel === "Todos" ){
+
+//     filteredData = originalData;
+
+//   }else{
+
+//     filteredData = filterData(originalData, "channel", selectedChannel);
+
+//   }
+//   return applyFilters()
+// }
+
+// function selectPublic() {
+//   const selectedPublic = targetAudience.value;
+
+//   if( selectedPublic==="Todos" ){
+
+//     filteredData = originalData;
+
+//   }else{
+
+//     filteredData = filterData(originalData, "targetAudience", selectedPublic);
+
+//   }
+//   return applyFilters()
+// }
+
+// function selectTransmission() {
+//   const selectedTransmission = status.value;
+
+//   if( selectedTransmission=== "Todos" ){
+
+//     filteredData = originalData;
+
+//   }else{
+
+//     filteredData = filterData(originalData, "status", selectedTransmission);
+
+//   }
+//   return applyFilters()
+// }
+
+
 
 
 

@@ -48,6 +48,5 @@ export const computeStats = (data) => {
   }, {});
 
 
-
   return numbersOfChannels;
 };
