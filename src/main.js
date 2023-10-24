@@ -19,7 +19,6 @@ const statistics = computeStats(data);
 const cartoonStatistics = channelStatistics(statistics);
 renderInView(cartoonStatistics, 'statistics');
 
-
 //Variable que almacena los filtros seleccionados y crean un objeto a la vez.
 
 const channel = document.querySelector("select[name='channel']");
@@ -66,11 +65,11 @@ function selectSort() {
   const selectedSort = sort.value;
 
   if(selectedSort !== "Seleccionar"){
-  const sortedData = sortData(filteredData, 'name', selectedSort);
+    const sortedData = sortData(filteredData, 'name', selectedSort);
   
 
-  const itemsFiltered = renderItems(sortedData);
-  renderInView(itemsFiltered, 'root')}
+    const itemsFiltered = renderItems(sortedData);
+    renderInView(itemsFiltered, 'root')}
   
 
 }
@@ -82,6 +81,8 @@ btnToggle.addEventListener("click", function () {
   document.getElementById("sideBar").classList.toggle("active");
 });
 
+
+//Button 
 const buttonReset = document.querySelector(
   "button[data-testid='button-clear']"
 );
@@ -98,7 +99,6 @@ function resetFiltersAndRenderItems() {
   filteredData = data;
   const itemsFiltered = renderItems(data);
   renderInView(itemsFiltered, 'root');
-
 }
 
 // const originalData = [...data];

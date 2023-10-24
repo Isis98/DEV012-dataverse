@@ -46,7 +46,6 @@ export const renderItems = (data) => {
   }
 
   //Renderizar el ul, esto debe estar en el main.js
-
   return ul;
 };
 
