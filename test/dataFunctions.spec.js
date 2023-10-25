@@ -1,23 +1,7 @@
-import { example, anotherExample } from '../src/dataFunctions.js';
-/* import { data, data as fakeData } from './data.js'; */
 import {filterData} from '../src/dataFunctions.js';
 import data from '../src/data/dataset.js';
 import { sortData } from '../src/dataFunctions.js';
-/*console.log(fakeData); */
 
-/*describe('example', () => {
-
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});
-
-describe('anotherExample', () => {
-
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-}); */
 
 const filteredDataDisney = filterData(data, "channel", "Disney Channel")
 const filteredDataCartoon = filterData(data, "channel", "Cartoon Network")
@@ -57,13 +41,13 @@ describe('filtro por público dirigido', () => {
   });
 });
 
-describe('Ordenanmiento' , () => {
+describe('Ordenamiento' , () => {
   it('Ordenamiento ascendente',() =>{
-  const ascendente = sortData(data, "name", "asc") 
+    const ascendente = sortData(data, "name", "asc") 
     expect(ascendente[0]).toStrictEqual(data[0]);// Esta cambiando la data inicial
   });
   it('Ordenamiento descendente',() =>{
-    const ascendente = sortData(data, "name", "desc") 
-      expect(ascendente[23]).toStrictEqual(data[23]);
+    const descendente = sortData(data, "name", "desc") 
+    expect(descendente[23]).toStrictEqual(data[23]);
   }); 
-  });
+});

@@ -11,7 +11,7 @@ export const filterData = (data, filterBy, value) => {
 };
 
 export const sortData = (data, sortBy, sortOrder) => {
-  //
+  
   const sortedData = data;
 
   const asc = sortedData.sort((a, b) => {

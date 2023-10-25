@@ -28,7 +28,7 @@ export const renderItems = (data) => {
         <section class="back">
         <dt itemprop=""><b>Descripcion corta:</b> ${element.shortDescription}</dt>
         <dt itemprop=""><b>Descripcion:</b> ${element.description}</dt>
-        <dt itemprop=""><b>Hechos importantes:</b> </dt>
+        <dd itemprop=""><b>Hechos importantes:</b> </dd>
         <dd>Fecha de Creacion: ${element.facts.fechaDeCreacionDelPrograma}</dd>
         <dd>Capitulo con mayor rating: ${element.facts.capituloConMayorRating}</dd>
         <dd>Dato curioso: ${element.facts.datoCurioso}</dd>
