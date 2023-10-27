@@ -1,4 +1,4 @@
-import {filterData} from '../src/dataFunctions.js';
+import {computeStats, filterData} from '../src/dataFunctions.js';
 import data from '../src/data/dataset.js';
 import { sortData } from '../src/dataFunctions.js';
 
@@ -48,6 +48,19 @@ describe('Ordenamiento' , () => {
   });
   it('Ordenamiento descendente',() =>{
     const descendente = sortData(data, "name", "desc") 
-    expect(descendente[23]).toStrictEqual(data[23]);
+    expect(descendente[0]).toStrictEqual(data[0]);
   }); 
 });
+
+describe ('Estadistica Global', () => {
+  it('Estadistica General por Canales', () => {
+    const channelStatistics ={"Cartoon Network": 6, "Discovery Kids": 6, "Disney Channel": 6, "Nickelodeon": 6};
+    const globalStatictic = computeStats(data)
+    expect(globalStatictic).toStrictEqual(channelStatistics);
+
+  }
+  
+  )
+}
+  
+);

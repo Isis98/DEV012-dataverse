@@ -8,16 +8,16 @@ import data from "./data/dataset.js";
 // const dataClone = [...data];
 const renderInView = (element, id) => {
   const rootElement = document.getElementById(id);
-  rootElement.innerHTML = ''
+  rootElement.innerHTML = "";
   rootElement.appendChild(element);
 };
 
 const dataBaseToShowInHtml = renderItems(data);
-renderInView(dataBaseToShowInHtml, 'root');
+renderInView(dataBaseToShowInHtml, "root");
 
 const statistics = computeStats(data);
 const cartoonStatistics = channelStatistics(statistics);
-renderInView(cartoonStatistics, 'statistics');
+renderInView(cartoonStatistics, "statistics");
 
 //Variable que almacena los filtros seleccionados y crean un objeto a la vez.
 
@@ -32,8 +32,7 @@ let filteredData = [...data];
 channel.addEventListener("change", applyFilters);
 targetAudience.addEventListener("change", applyFilters);
 status.addEventListener("change", applyFilters);
-sort.addEventListener("change", selectSort );
-
+sort.addEventListener("change", selectSort);
 
 function applyFilters() {
   // Create a copy of the original data to apply filters
@@ -57,23 +56,19 @@ function applyFilters() {
 
   // Display the filtered data in the HTML.
   const itemsFiltered = renderItems(filteredData);
-  renderInView(itemsFiltered, 'root');
+  renderInView(itemsFiltered, "root");
 }
 
 function selectSort() {
-  
   const selectedSort = sort.value;
 
-  if(selectedSort !== "Seleccionar"){
-    const sortedData = sortData(filteredData, 'name', selectedSort);
-  
+  if (selectedSort !== "Seleccionar") {
+    const sortedData = sortData(filteredData, "name", selectedSort);
 
     const itemsFiltered = renderItems(sortedData);
-    renderInView(itemsFiltered, 'root')}
-  
-
+    renderInView(itemsFiltered, "root");
+  }
 }
-
 
 const btnToggle = document.querySelector(".toggle-btn");
 
@@ -81,25 +76,38 @@ btnToggle.addEventListener("click", function () {
   document.getElementById("sideBar").classList.toggle("active");
 });
 
-
-//Button 
+//Button
 const buttonReset = document.querySelector(
   "button[data-testid='button-clear']"
 );
 
-buttonReset.addEventListener("click", resetFiltersAndRenderItems);
+buttonReset.addEventListener("click", (e) => {
+  const resetButton = e.target;
 
-function resetFiltersAndRenderItems() {
+  if (resetButton) {
+    resetButton.selectedIndex = 0;
+  }
 
-  buttonReset.selectedIndex = 0;
-  channel.selectedIndex = 0;
-  targetAudience.selectedIndex = 0;
-  status.selectedIndex = 0;
-  sort.selectedIndex = 0;
+  if (channel) {
+    channel.selectedIndex = 0;
+  }
+
+  if (targetAudience) {
+    targetAudience.selectedIndex = 0;
+  }
+
+  if (status) {
+    status.selectedIndex = 0;
+  }
+
+  if (sort) {
+    sort.selectedIndex = 0;
+  }
+
   filteredData = data;
   const itemsFiltered = renderItems(data);
-  renderInView(itemsFiltered, 'root');
-}
+  renderInView(itemsFiltered, "root");
+});
 
 // const originalData = [...data];
 // let filteredData = [...data];
@@ -111,19 +119,15 @@ function resetFiltersAndRenderItems() {
 // //   }
 // // }
 
-
-
 // channel.addEventListener("change", selectChannel);
 // targetAudience.addEventListener("change", selectPublic);
 // status.addEventListener("change", selectTransmission);
-
 
 // function applyFilters() {
 //   // Display the filtered data in the HTML.
 //   const itemsFiltered = renderItems(filteredData);
 //   renderInView(itemsFiltered, 'root');
 // }
-
 
 // function selectChannel() {
 //   const selectedChannel = channel.value;
@@ -169,16 +173,6 @@ function resetFiltersAndRenderItems() {
 //   }
 //   return applyFilters()
 // }
-
-
-
-
-
-
-
-
-
-
 
 // Data estadística de canales
 // const statisticChannel = data

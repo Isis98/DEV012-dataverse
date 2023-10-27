@@ -25,8 +25,7 @@
     }
     
      #root ul {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
         align-items: baseline;
         flex-wrap: wrap;
         list-style: none;
