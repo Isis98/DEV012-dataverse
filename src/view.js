@@ -18,16 +18,16 @@ export const renderItems = (data) => {
         <figure>
           <img src="${element.imageUrl}" class="img"/>
         </figure>
-        <dt itemprop=""><b>${element.name}</b></dt><dd itemprop=""> Canal de Television : ${element.channel}</dd>
-        <dt itemprop="">Genero: ${element.genre}</dt>
-        <dt itemprop="">Transmision: ${element.status}</dt>
-        <dt itemprop="">Audiencia: ${element.targetAudience}</dt>
+        <dt><b>${element.name}</b></dt><dd itemprop=""> Canal de Television : ${element.channel}</dd>
+        <dt>Genero: ${element.genre}</dt>
+        <dt>Transmision: ${element.status}</dt>
+        <dt>Audiencia: ${element.targetAudience}</dt>
         
         </section>
 
         <section class="back">
-        <dt itemprop=""><b>Descripcion corta:</b> ${element.shortDescription}</dt>
-        <dt itemprop=""><b>Descripcion:</b> ${element.description}</dt>
+        <dt><b>Descripcion corta:</b> ${element.shortDescription}</dt>
+        <dt><b>Descripcion:</b> ${element.description}</dt>
         <dd itemprop=""><b>Hechos importantes:</b> </dd>
         <dd>Fecha de Creacion: ${element.facts.fechaDeCreacionDelPrograma}</dd>
         <dd>Capitulo con mayor rating: ${element.facts.capituloConMayorRating}</dd>
