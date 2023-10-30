@@ -2,7 +2,7 @@ export const renderItems = (data) => {
   // Aquí comienza tu código y puedes retornar lo que tu necesites
   //Crear un elemento ul por cada elemento en data
   const ul = document.createElement("ul");
-
+  ul.setAttribute("class","ulClass")
   data.forEach(createLi);
 
   function createLi(element) {
@@ -10,7 +10,7 @@ export const renderItems = (data) => {
     // //Inyectar cada li con los datos de cada elemento
     const li = `
     
-    <li class="elements">
+    <li class="liClass">
     <section class="card">
 
     <section class="front">
@@ -18,20 +18,21 @@ export const renderItems = (data) => {
         <figure>
           <img src="${element.imageUrl}" class="img"/>
         </figure>
-        <dt><b>${element.name}</b></dt><dd itemprop=""> Canal de Television : ${element.channel}</dd>
-        <dt>Genero: ${element.genre}</dt>
-        <dt>Transmision: ${element.status}</dt>
-        <dt>Audiencia: ${element.targetAudience}</dt>
+        <dt><b>${element.name}</b></dt>
+        <dt>Canal de televisión: </dt><dd itemprop="channel"> ${element.channel}</dd>
+        <dt>Transmision: </dt><dd itemprop="status">${element.status}</dd>
+        <dt>Audiencia: </dt><dd itemprop="targetAudience">${element.targetAudience}</dd>
         
         </section>
 
         <section class="back">
-        <dt><b>Descripcion corta:</b> ${element.shortDescription}</dt>
-        <dt><b>Descripcion:</b> ${element.description}</dt>
-        <dd itemprop=""><b>Hechos importantes:</b> </dd>
-        <dd>Fecha de Creacion: ${element.facts.fechaDeCreacionDelPrograma}</dd>
-        <dd>Capitulo con mayor rating: ${element.facts.capituloConMayorRating}</dd>
-        <dd>Dato curioso: ${element.facts.datoCurioso}</dd>
+        <dt><b>Género: </b></dt><dd itemprop="genre">${element.genre}</dd>
+        <dt><b>Descripción corta:</b></dt><dd itemprop="shortDescription">${element.shortDescription}</dd>
+        <dt><b>Descripción:</b></dt><dd itemprop="description"> ${element.description}</dd>
+        <dt><b>Hechos importantes:</b> </dt>
+        <dd itemprop="fechaDeCreacionDelPrograma">Fecha de Creacion: ${element.facts.fechaDeCreacionDelPrograma}</dd>
+        <dd itemprop="capituloConMayorRating">Capitulo con mayor rating: ${element.facts.capituloConMayorRating}</dd>
+        <dd itemprop="datoCurioso">Dato curioso: ${element.facts.datoCurioso}</dd>
 
         </section>
       </dl>

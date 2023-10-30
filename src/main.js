@@ -24,7 +24,6 @@ renderInView(cartoonStatistics, "statistics");
 const channel = document.querySelector("select[name='channel']");
 const targetAudience = document.querySelector("select[name='targetAudience']");
 const status = document.querySelector("select[name='status']");
-const sort = document.querySelector("select[data-testid='select-sort']");
 
 const originalData = [...data];
 let filteredData = [...data];
@@ -32,7 +31,6 @@ let filteredData = [...data];
 channel.addEventListener("change", applyFilters);
 targetAudience.addEventListener("change", applyFilters);
 status.addEventListener("change", applyFilters);
-sort.addEventListener("change", selectSort);
 
 function applyFilters() {
   // Create a copy of the original data to apply filters
@@ -59,16 +57,16 @@ function applyFilters() {
   renderInView(itemsFiltered, "root");
 }
 
-function selectSort() {
-  const selectedSort = sort.value;
-
+const sort = document.querySelector("select[data-testid='select-sort']");
+sort.addEventListener("change", (event) => {
+  const selectedSort = event.target.value;
   if (selectedSort !== "Seleccionar") {
     const sortedData = sortData(filteredData, "name", selectedSort);
 
     const itemsFiltered = renderItems(sortedData);
     renderInView(itemsFiltered, "root");
   }
-}
+});
 
 const btnToggle = document.querySelector(".toggle-btn");
 
@@ -81,33 +79,19 @@ const buttonReset = document.querySelector(
   "button[data-testid='button-clear']"
 );
 
-buttonReset.addEventListener("click", (e) => {
-  const resetButton = e.target;
+buttonReset.addEventListener("click", resetFiltersAndRenderItems);
 
-  if (resetButton) {
-    resetButton.selectedIndex = 0;
-  }
-
-  if (channel) {
-    channel.selectedIndex = 0;
-  }
-
-  if (targetAudience) {
-    targetAudience.selectedIndex = 0;
-  }
-
-  if (status) {
-    status.selectedIndex = 0;
-  }
-
-  if (sort) {
-    sort.selectedIndex = 0;
-  }
-
+function resetFiltersAndRenderItems() {
+  buttonReset.selectedIndex = 0;
+  channel.selectedIndex = 0;
+  targetAudience.selectedIndex = 0;
+  status.selectedIndex = 0;
+  sort.selectedIndex = 0;
   filteredData = data;
+
   const itemsFiltered = renderItems(data);
   renderInView(itemsFiltered, "root");
-});
+}
 
 // const originalData = [...data];
 // let filteredData = [...data];
