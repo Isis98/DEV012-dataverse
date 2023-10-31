@@ -28,9 +28,6 @@ const status = document.querySelector("select[name='status']");
 const originalData = [...data];
 let filteredData = [...data];
 
-channel.addEventListener("change", applyFilters);
-targetAudience.addEventListener("change", applyFilters);
-status.addEventListener("change", applyFilters);
 
 function applyFilters() {
   // Create a copy of the original data to apply filters
@@ -92,6 +89,10 @@ function resetFiltersAndRenderItems() {
   const itemsFiltered = renderItems(data);
   renderInView(itemsFiltered, "root");
 }
+
+channel.addEventListener("change", applyFilters);
+targetAudience.addEventListener("change", applyFilters);
+status.addEventListener("change", applyFilters);
 
 // const originalData = [...data];
 // let filteredData = [...data];

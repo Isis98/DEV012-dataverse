@@ -10,11 +10,11 @@ export const renderItems = (data) => {
     // //Inyectar cada li con los datos de cada elemento
     const li = `
     
-    <li class="liClass">
+    <li class="liClass" itemscope itemtype="https://schema.org/Person">
     <section class="card">
 
     <section class="front">
-      <dl itemscope itemtype="https://schema.org/TVSeries" class="user-name">
+      <dl class="user-name">
         <figure>
           <img src="${element.imageUrl}" class="img"/>
         </figure>
