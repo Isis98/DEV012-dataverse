@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1></h1>
+      <section class="toggle-btn">
+        <spam>&#9776;</spam>
+      </section>
+    </header>
+    <section id="sideBar" class="active">
+      <main>
+        <h2>
+          <i>Filtros</i>
+        </h2>
+      </main>
+
+      <label for="channel">Canales de televisión</label>
+      <select data-testid="select-filter" name="channel" id="channel">
+        <option value="Todos">Todos</option>
+        <option value="Disney Channel">Disney Channel</option>
+        <option value="Cartoon Network">Cartoon Network</option>
+        <option value="Nickelodeon">Nickelodeon</option>
+        <option value="Discovery Kids">Discovery Kids</option></select
+      ><br /><br />
+
+      <label for="targetAudience">Público dirigido</label>
+      <select
+        data-testid="select-filter"
+        name="targetAudience"
+        id="targetAudience"
+      >
+        <option value="Todos">Todos</option>
+        <option value="Niños">Niños</option>
+        <option value="Niños y adolescentes">
+          Niños y adolescentes
+        </option></select
+      ><br /><br />
+
+      <label for="status">Transmisión</label>
+      <select data-testid="select-filter" name="status" id="status">
+        <option value="Todos">Todos</option>
+        <option value="En curso">En curso</option>
+        <option value="Finalizada">Finalizada</option></select
+      ><br /><br />
+
+      <label for="words">Orden alfabético</label>
+      <select data-testid="select-sort" name="words" id="words">
+        <option value="Seleccionar">Seleccionar</option>
+        <option value="asc">A - Z</option>
+        <option value="desc">Z - A</option></select
+      ><br /><br />
+      <button data-testid="button-clear">Limpiar</button>
+
+      <section class="totalChannels">
+        <h3>Data Estadistica</h3>
+
+        <p id="statistics"></p>
+      </section>
+    </section>
+
+    <section id="root"></section>
+
+    <footer>Copyright Isis y Ross 2023</footer>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
