@@ -17,7 +17,7 @@ export default [
       capituloConMayorRating:
         "El episodio 'Not What He Seems' es uno de los más destacados de la serie.",
       datoCurioso:
-        "Se ha desarrollado una base de fanáticos apasionados debido a su narrativa intrigante y personajes carismáticos.",
+        "Ha desarrollado una base de fanáticos apasionados debido a su narrativa intrigante y personajes carismáticos.",
     },
   },
 

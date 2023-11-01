@@ -150,7 +150,6 @@ select {
         bottom: 0;
         margin: 10px 0 10px;
        
-        
     }
     
     .card .front dl {
@@ -243,7 +242,9 @@ select {
     }
     
      .ulClass {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 4% auto;
         align-items: baseline;
         flex-wrap: wrap;
         list-style: none;
