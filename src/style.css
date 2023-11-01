@@ -244,8 +244,7 @@ select {
     }
     
      .ulClass {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
         margin: 4% auto;
         align-items: baseline;
         flex-wrap: wrap;
