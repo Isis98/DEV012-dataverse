@@ -18,7 +18,7 @@ header {
 
 footer {
     position: absolute;
-    width: 15%;
+    width: 60%;
     right: 0;
     bottom: 0;
     margin: 10px 0 10px;
@@ -171,6 +171,7 @@ select {
         margin-top: 3.5em;
         align-items: center;
         text-align: center;
+        z-index: 100;
     }
     select {
         color: black;
@@ -193,6 +194,7 @@ select {
         color: black;
         position:fixed;
         cursor: pointer;
+        z-index: 100;
     }
     
     #root {
@@ -200,6 +202,7 @@ select {
         margin: auto;
         padding-top: 4em ; 
         display: flex;
+        margin-bottom: 15%;
     }
     .totalChannels ul{
     
@@ -379,6 +382,7 @@ select {
         margin: auto;
         padding-top: 4em ; 
         display: flex;
+        margin-bottom: 15%;
     }
     .totalChannels ul{
     
@@ -423,7 +427,7 @@ select {
         align-items: baseline;
         flex-wrap: wrap;
         list-style: none;
-        column-gap: 7%;
+        column-gap: 4%;
         row-gap: 50px;
         justify-content: center;
         padding: 1%;
@@ -541,6 +545,7 @@ select {
         margin: auto;
         padding-top: 4em ;
         display: flex;
+        margin-bottom: 15%;
     }
     .totalChannels ul{
     

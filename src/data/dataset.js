@@ -17,7 +17,7 @@ export default [
       capituloConMayorRating:
         "El episodio 'Not What He Seems' es uno de los más destacados de la serie.",
       datoCurioso:
-        "Gravity Falls ha desarrollado una base de fanáticos apasionados debido a su narrativa intrigante y personajes carismáticos.",
+        "Se ha desarrollado una base de fanáticos apasionados debido a su narrativa intrigante y personajes carismáticos.",
     },
   },
 
