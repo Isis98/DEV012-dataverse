@@ -18,7 +18,7 @@ header {
 
 footer {
     position: absolute;
-    width: 60%;
+    
     right: 0;
     bottom: 0;
     margin: 10px 0 10px;
@@ -146,10 +146,10 @@ select {
     
     footer {
         position: absolute;
-        width: 15%;
         right: 0;
         bottom: 0;
         margin: 10px 0 10px;
+       
         
     }
     
@@ -328,7 +328,6 @@ select {
     
     footer {
         position: absolute;
-        width: 15%;
         right: 0;
         bottom: 0;
         margin: 10px 0 10px;
