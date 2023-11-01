@@ -62,6 +62,7 @@ select {
     }
     
      .ulClass{
+        margin-left: 0%;
         display: flex;
         align-items: baseline;
         flex-wrap: wrap;
@@ -199,7 +200,7 @@ select {
     }
     
     #root {
-        width: calc(100% - 180px);
+        /* width: calc(100% - 180px); */
         margin: auto;
         padding-top: 4em ; 
         display: flex;
