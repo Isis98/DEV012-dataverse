@@ -118,6 +118,7 @@ select {
         padding: 15px;
         font-size: medium;
         text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     }
 
     .card .back {
@@ -134,6 +135,7 @@ select {
         border-radius: 30px;
         font-size: small;
         text-align: justify;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     }
     
     .card:hover .front {
@@ -150,7 +152,6 @@ select {
         bottom: 0;
         margin: 10px 0 10px;
        
-        
     }
     
     .card .front dl {
@@ -244,6 +245,8 @@ select {
     
      .ulClass {
         display: flex;
+        grid-template-columns: 1fr 1fr;
+        margin: 4% auto;
         align-items: baseline;
         flex-wrap: wrap;
         list-style: none;
@@ -300,6 +303,7 @@ select {
         padding: 15px;
         font-size: medium;
         text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     }
 
     .card .back {
@@ -316,6 +320,7 @@ select {
         border-radius: 30px;
         font-size: small;
         text-align: justify;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     }
     
     .card:hover .front {
@@ -351,6 +356,7 @@ select {
         margin-top: 3.5em;
         align-items: center;
         text-align: center;
+        z-index: 100;
     }
     select {
         color: black;
@@ -479,6 +485,7 @@ select {
         padding: 15px;
         font-size: medium;
         text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     }
 
     .card .back {
@@ -495,6 +502,7 @@ select {
         border-radius: 30px;
         font-size: small;
         text-align: justify;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     }
     
     .card:hover .front {
