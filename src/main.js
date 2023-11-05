@@ -1,9 +1,10 @@
 import { computeStats, filterData } from "./dataFunctions.js";
 import { renderItems } from "./view.js";
-import { channelStatistics } from "./view.js";
+import { createChannelStatistics } from "./view.js";
 import { sortData } from "./dataFunctions.js";
 
 import data from "./data/dataset.js";
+console.log("🚀 ~ file: main.js:7 ~ data:", data)
 
 // const dataClone = [...data];
 const renderInView = (element, id) => {
@@ -16,8 +17,8 @@ const dataBaseToShowInHtml = renderItems(data);
 renderInView(dataBaseToShowInHtml, "root");
 
 const statistics = computeStats(data);
-const cartoonStatistics = channelStatistics(statistics);
-renderInView(cartoonStatistics, "statistics");
+const channelStatistics = createChannelStatistics(statistics);
+renderInView(channelStatistics, "statistics");
 
 //Variable que almacena los filtros seleccionados y crean un objeto a la vez.
 
@@ -27,7 +28,6 @@ const status = document.querySelector("select[name='status']");
 
 const originalData = [...data];
 let filteredData = [...data];
-
 
 function applyFilters() {
   // Create a copy of the original data to apply filters
@@ -59,7 +59,7 @@ sort.addEventListener("change", (event) => {
   const selectedSort = event.target.value;
   if (selectedSort !== "Seleccionar") {
     const sortedData = sortData(filteredData, "name", selectedSort);
-
+    // {"ant","bolivar"}
     const itemsFiltered = renderItems(sortedData);
     renderInView(itemsFiltered, "root");
   }
@@ -68,6 +68,7 @@ sort.addEventListener("change", (event) => {
 const btnToggle = document.querySelector(".toggle-btn");
 
 btnToggle.addEventListener("click", function () {
+  // {}
   document.getElementById("sideBar").classList.toggle("active");
 });
 

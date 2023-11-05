@@ -1,11 +1,10 @@
 // Estas funciones son ejemplos, aquí puedes desarrollar tus propias funciones.
 export const filterData = (data, filterBy, value) => {
-  
   return data.filter((element) => element[filterBy] === value);
 };
 
 export const sortData = (data, sortBy, sortOrder) => {
-  const sortedData = data;
+  const sortedData = [...data];
 
   const asc = sortedData.sort((a, b) => {
     if (a[sortBy] < b[sortBy]) {
@@ -28,19 +27,28 @@ export const sortData = (data, sortBy, sortOrder) => {
 export const computeStats = (data) => {
   const arrayOfChannels = data.map((item) => item.channel);
 
+  // ["tnt", "spn", "espn", "fox", "fox"]
   const numbersOfChannels = arrayOfChannels.reduce((accum, channel) => {
     if (accum[channel]) {
-      accum[channel]++;
+      // accum[channel]++;
+      accum[channel] = Number(accum[channel]) + 1;
     } else {
       accum[channel] = 1;
     }
 
     return accum;
   }, {});
+  // {}
+  // { tnt: 1}
+  // { tnt : 1
+  //     spn : 1  }
+  // { tnt : 1, spn : 1, espn : 1}
+  // { tnt : 1, spn : 1, espn : 1, fox : 1}
+  // { tnt : 1, spn : 1, espn : 1, fox : 1 + 1(2)}
 
-  for (const key in numbersOfChannels) {
-    numbersOfChannels[key] = Number(numbersOfChannels[key]);
-  }
+  // for (const key in numbersOfChannels) {
+  //   numbersOfChannels[key] = Number(numbersOfChannels[key]);
+  // }
 
   return numbersOfChannels;
 };

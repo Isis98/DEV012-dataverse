@@ -90,7 +90,7 @@ La lógica del proyecto fue implementada completamente en JavaScript
 frameworks, solo vanilla JavaScript.
 
 
-## 6. Maquetación del proyecto
+## 6. Proceso del proyecto
 
 ### Metodologías ágiles utilizadas (Trabajo Colaborativo)
 
