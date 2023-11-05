@@ -3,9 +3,9 @@ import data from "../src/data/dataset.js";
 import { sortData } from "../src/dataFunctions.js";
 
 // const filteredDataDisney = filterData(data, "channel", "Disney Channel");
-const filteredDataCartoon = filterData(data, "channel", "Cartoon Network");
-const filteredDataDiscovery = filterData(data, "channel", "Discovery Kids");
-const filteredDataNickelodeon = filterData(data, "channel", "Nickelodeon");
+// const filteredDataCartoon = filterData(data, "channel", "Cartoon Network");
+// const filteredDataDiscovery = filterData(data, "channel", "Discovery Kids");
+// const filteredDataNickelodeon = filterData(data, "channel", "Nickelodeon");
 
 describe("filtro por canales", () => {
   it("Debe filtrar por programas de Disney Channel", () => {
@@ -15,17 +15,17 @@ describe("filtro por canales", () => {
 
   it("Debe filtrar por programas de Cartoon", () => {
     const filterCartoon = filterData(data, "channel", "Cartoon Network");
-    expect(filterCartoon).toStrictEqual(filteredDataCartoon);
+    expect(filterCartoon.length).toStrictEqual(6);
   });
 
   it("Debe filtrar por programas de Discovery", () => {
     const filterDiscovery = filterData(data, "channel", "Discovery Kids");
-    expect(filterDiscovery).toStrictEqual(filteredDataDiscovery);
+    expect(filterDiscovery.length).toStrictEqual(6);
   });
 
   it("Debe filtrar por programas de Nickelodeon", () => {
     const filterNickelodeon = filterData(data, "channel", "Nickelodeon");
-    expect(filterNickelodeon).toStrictEqual(filteredDataNickelodeon);
+    expect(filterNickelodeon.length).toStrictEqual(6);
   });
 });
 
@@ -61,7 +61,7 @@ describe("Estadistica Global", () => {
       "Cartoon Network": 6,
       "Discovery Kids": 6,
       "Disney Channel": 6,
-      Nickelodeon: 6,
+      "Nickelodeon": 6,
     };
     const globalStatictic = computeStats(data);
     expect(globalStatictic).toStrictEqual(channelStatistics);
