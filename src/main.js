@@ -80,7 +80,7 @@ const buttonReset = document.querySelector(
 buttonReset.addEventListener("click", resetFiltersAndRenderItems);
 
 function resetFiltersAndRenderItems() {
-  buttonReset.selectedIndex = 0;
+  
   channel.selectedIndex = 0;
   targetAudience.selectedIndex = 0;
   status.selectedIndex = 0;

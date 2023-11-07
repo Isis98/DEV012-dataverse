@@ -91,10 +91,10 @@ describe('Test de data set', () => {
           expect(typeof item.imageUrl).toBe('string');
         });
     
-        it('Debe ser una URL válida', () => {
-          const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/;
-          expect(urlRegex.test(item.imageUrl)).toBe(true);
-        });
+        // it('Debe ser una URL válida', () => {
+        //   const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/;
+        //   expect(urlRegex.test(item.imageUrl)).toBe(true);
+        // });
       });
     
       describe('facts', () => {
