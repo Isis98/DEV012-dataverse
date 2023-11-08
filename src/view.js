@@ -18,7 +18,7 @@ export const renderItems = (data) => {
         <figure>
           <img src="${element.imageUrl}" class="img"/>
         </figure>
-        <dt></dt><dd>${element.name}</dd>
+        <dt></dt><dd itemprop="name">${element.name}</dd>
         <dt>Canal de televisión: </dt><dd itemprop="channel"> ${element.channel}</dd>
         <dt>Transmision: </dt><dd itemprop="status">${element.status}</dd>
         <dt>Audiencia: </dt><dd itemprop="targetAudience">${element.targetAudience}</dd>
